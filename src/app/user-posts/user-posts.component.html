@@ -1,0 +1,11 @@
+<app-page-nav-bar [fromPage]="'postPage'"></app-page-nav-bar>
+<div class="card-columns">
+    <div *ngFor="let data of postData">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h4 class="card-title">{{data.title}}</h4>
+                <p class="card-text">{{data.body}} </p>
+            </div>
+        </div>
+    </div>
+</div>

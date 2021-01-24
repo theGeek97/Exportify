@@ -1,0 +1,31 @@
+
+<form [formGroup]="loginForm" novalidate >
+    <div class="container">
+        <h2 class="text-center">Login Page</h2>
+        <div class="card ">
+            <div class="card-body">
+                <div class="text-center">
+                    <label>USERNAME:</label>
+                    <input type="text" name="userName" id="userName" formControlName="userName">
+                </div>
+                <div class="text-center">
+                    <label>PASSWORD:</label>
+                    <input [type]="show? 'text':'password'" name="userPass" id="userPass" formControlName="userPassword">
+                    <div class="text-center" *ngIf="loginForm.controls['userPassword'].invalid && (loginForm.controls['userPassword'].dirty || loginForm.controls['userPassword'].touched)" class="alert">
+                        <div *ngIf="loginForm.get('userPassword').hasError('minlength')">
+                        Please enter password with length more than 5
+                      </div>
+                    </div>
+                </div>
+               
+                <div class="text-center">
+                    <input type="checkbox" name="showHide" value="Show Password" formControlName="checkboxValue">SHOW/HIDE PASSWORD
+                </div>
+                <div class="text-center">
+                    <button type="button" name="submit" value="SUBMIT" (click)="submit()">SUBMIT</button>
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+</form>
